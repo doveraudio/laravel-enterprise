@@ -19,16 +19,17 @@ class CheckPermission
     {
         //var_dump($request->user()->roles()->get());
         //die;// "THIS IS THE TRUE";
-        if($request->user()->authorize($attribute, $activity)){
-        return $next($request);
-    }else{
-        if ($request->ajax()) {
-            return response('Unauthorized.', 401);
-        } else {
-            //return "THIS IS THE FALSE";
-                return redirect()->guest('/home');
+        if($request->user()!==null){
+            if($request->user()->authorize($attribute, $activity)){
+                return $next($request);
+            }else{
+                if ($request->ajax()) {
+                    return response('Unauthorized.', 401);
+             } 
             }
+        }
+        return redirect()->guest('/home');
         }
     }
     
-}
+

@@ -1,13 +1,14 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header">{{ data.name }} Says:</div>
 
                     <div class="card-body">
                        <h2>{{ data.message }} </h2>
                     </div>
+                
                 </div>
             </div>
         </div>
@@ -20,7 +21,7 @@
         message: "Hello Nurse!"
     }
     export default {
-        name: 'example-component',
+        name: 'home-component',
         props: ['model'],
         data: function(){
             return {

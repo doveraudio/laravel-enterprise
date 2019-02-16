@@ -9,7 +9,12 @@ use Laravel\Tinker as Tinker;
  */
 class TinkerController extends Controller
 {
-    public static function execute(Request $request){
+
+    public function __construct(){
+        $this->middleware('permission:administration,access');
+    }
+
+    public function execute(Request $request){
         $results = [];
         $text = "";
         try {

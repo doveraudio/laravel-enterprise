@@ -20,6 +20,8 @@ Route::get('/tinker', function () {
 Route::get('/admin', function () {
     return view('admin');
 })->middleware('permission:administration,access')->name('admin');
+Route::get('/profiledata', 'UserController@default')->name('profiledata');
+Route::get('/users/all', 'UserController@index')->name('users/all');
 Route::get('/user', function () {
     return view('user');
 })->middleware('permission:user,access')->name('user');
